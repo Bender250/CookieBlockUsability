@@ -11,6 +11,11 @@ Released under the MIT License, see included LICENSE file.
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="cookieblock_options.css">
+
+    <!-- Include the Marked library -->
+    <script type="text/javascript" src="/modules/third_party/marked.min.js"></script>
+    <script type="text/javascript" src="/modules/globals.js"></script>
+    <script type="text/javascript" src="/options/cookieblock_setup.js"></script>
 </head>
 <body>
 <div class="header">
@@ -23,73 +28,69 @@ Released under the MIT License, see included LICENSE file.
 
 <div class="contents">
     <div class="description">
-        <p id="setup_greet" style="margin-top: 0em; font-size: 1.75em; font-weight: bold;"></p>
-        <p id="setup_desc1" class="overview_description"></p>
-        <ul>
-            <li><a id="setup_link_isdcac" style="font-weight: normal" target="_blank">I still don't care about cookies!</a></li>
-            <li><a id="setup_link_ublock" style="font-weight: normal" target="_blank">uBlock Origin + EasyList Cookie list</a></li>
-        </ul>
-
-        <p id="setup_desc2" class="overview_description"></p>
-        <p id="setup_feed1" style="font-weight: bold;">
-            Feedback:
-            <a id="setup_flink1" style="font-weight: normal" href="https://forms.gle/tL21ruvPZq2q218P8" target="_blank">https://forms.gle/tL21ruvPZq2q218P8</a>
-        </p>
-        <p id="setup_feed2" style="font-weight: bold;">
-            Github:
-            <a id="setup_flink2" style="font-weight: normal" href="https://github.com/dibollinger/CookieBlock" target="_blank">https://github.com/dibollinger/CookieBlock</a>
-        </p>
-        <p id="setup_desc3" class="overview_description"></p>
+        <h1 id="setup_greet"></h1>
+        <div id="setup_desc1" class="overview_description"></div>
+        <div id="setup_desc2" class="overview_description"></div>
     </div>
+    <div class="description">
+        <h1 id="setup_next_header"></h1>
+        <div id="setup_next_desc" class="overview_description"></div>
+    </div>
+
+    <div id="classify_title" class="catname missing_checkbox" style="margin-top: 1.25em"></div>
+    <div id="classify_desc" class="class_desc"></div>
+    <div class=submit_field>
+        <button id="set_policy" type="submit" style="height:100%; width:100%; font:larger; float:left; margin-bottom: 1.25em;"></button>
+        <div id="apply_text" class="button_clicktext" style="margin-bottom: 1.25em;" hidden></div>
+    </div>
+
     <hr class="thin">
+
     <div class="settings_group">
-        <fieldset id="consent-preferences" class="preference_form">
-            <legend id="cprefs_legend" style="margin-top: .75em;"></legend>
-            <div id="cprefs_desc" class="overview_description"></div>
+        <details>
+            <summary id="cprefs_legend" style="margin-top: 0.5em; margin-bottom: 0; line-height: 1.2em; margin-left: 1em; font-weight: bold; font-size: 2em;"></summary>
+            <fieldset id="consent-preferences" class="preference_form">
 
-            <input id="nec_checkbox" type="checkbox" class="checkbox disabled" disabled checked>
-            <label id="nec_title" for="nec_checkbox" class="catname"></label>
-            <div id="nec_desc" class=class_desc></div>
+                <div id="cprefs_desc" class="overview_description"></div>
+
+                <input id="nec_checkbox" type="checkbox" class="checkbox disabled" disabled checked>
+                <label id="nec_title" for="nec_checkbox" class="catname"></label>
+                <div id="nec_desc" class=class_desc></div>
+                <hr class="thin">
+
+
+                <input id="func_checkbox" type="checkbox" class="checkbox" checked>
+                <label id="func_title" for="func_checkbox" class="catname"></label>
+                <div id="func_desc" class=class_desc></div>
+                <hr class="thin">
+
+
+                <input id="anal_checkbox" type="checkbox" class="checkbox">
+                <label id="anal_title" for="anal_checkbox" class="catname"></label>
+                <div id="anal_desc" class=class_desc></div>
+                <hr class="thin">
+
+                <input id="advert_checkbox" type="checkbox" class="checkbox">
+                <label id="advert_title" for="advert_checkbox" class="catname"></label>
+                <div id="advert_desc" class=class_desc></div>
+                <hr class="thin">
+            </fieldset>
+            <fieldset id="general_options" class="preference_form">
+                <input id="history_consent_checkbox" type="checkbox" class="checkbox" checked>
+                <label id="history_consent_title" for="history_consent_checkbox" class="catname"></label>
+                <div id="history_consent_desc" class=class_desc></div>
+                <details>
+                    <summary class="class_desc" id="history_why"></summary>
+                    <div id="history_consent_desc_detailed" class=class_desc></div>
+                </details>
+            </fieldset>
             <hr class="thin">
-
-
-            <input id="func_checkbox" type="checkbox" class="checkbox" checked>
-            <label id="func_title" for="func_checkbox" class="catname"></label>
-            <div id="func_desc" class=class_desc></div>
-            <hr class="thin">
-
-
-            <input id="anal_checkbox" type="checkbox" class="checkbox">
-            <label id="anal_title" for="anal_checkbox" class="catname"></label>
-            <div id="anal_desc" class=class_desc></div>
-            <hr class="thin">
-
-            <input id="advert_checkbox" type="checkbox" class="checkbox">
-            <label id="advert_title" for="advert_checkbox" class="catname"></label>
-            <div id="advert_desc" class=class_desc></div>
-            <hr class="thin">
-        </fieldset>
-        <fieldset id="general-options" class="preference_form">
-            <input id="history-consent-checkbox" type="checkbox" class="checkbox" checked>
-            <label id="history-consent-title" for="history-consent-checkbox" class="catname"></label>
-            <div id="history-consent-desc" class=class_desc></div>
-            <details>
-                <summary class="class_desc" id="history-why"></summary>
-                <div id="history-consent-desc-detailed" class=class_desc></div>
-            </details>
-
-            <div id="classify_title" class="catname missing_checkbox" style="margin-top: 1.25em;"></div>
-            <div id="classify_desc" class="class_desc"></div>
-            <div class=submit_field>
-                <button id="set_policy" type="submit" style="height:100%; width:100%; font:larger ;float:left;"></button>
-                <div id="apply_text" class="button_clicktext" hidden></div>
-            </div>
-        </fieldset>
-        <hr class="thick">
+        </details>
     </div>
 
-    <script type="text/javascript" src="/modules/globals.js"></script>
-    <script type="text/javascript" src="/options/cookieblock_setup.js"></script>
+    <div class="description">
+        <div id="setup_references" class="overview_description"></div>
+    </div>
 
     </div>
     </body>

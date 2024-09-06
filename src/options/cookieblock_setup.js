@@ -8,12 +8,6 @@ Released under the MIT License, see included LICENSE file.
 */
 //-------------------------------------------------------------------------------
 
-const histCheckbox = document.getElementById("history-consent-checkbox");
-const necessaryCheckbox = document.getElementById("nec_checkbox");
-const functionalityCheckbox = document.getElementById("func_checkbox");
-const analyticsCheckbox = document.getElementById("anal_checkbox");
-const advertisingCheckbox = document.getElementById("advert_checkbox");
-
 /**
  * Function that contains the localization text assignments.
  */
@@ -21,18 +15,20 @@ const advertisingCheckbox = document.getElementById("advert_checkbox");
     setStaticLocaleText("init_title", "extensionName");
     setStaticLocaleText("init_subtitle", "firstTimeSubtitle");
 
-    setStaticLocaleText("history-consent-title", "historyConsentTitle");
-    setStaticLocaleText("history-consent-desc", "historyConsentDesc");
-    setStaticLocaleText("history-why", "historyWhy");
-    setStaticLocaleText("history-consent-desc-detailed", "historyConsentDescDetailed");
-
     setStaticLocaleText("setup_greet", "firstTimeGreeting");
     setStaticLocaleText("setup_desc1","firstTimeDescPG1");
-    setStaticLocaleText("setup_desc2","firstTimeDescPG2");
-    setStaticLocaleText("setup_desc3","firstTimeDescPG3");
 
-    setStaticLocaleText("cprefs_legend", "setupHeaderPreferences");
-    setStaticLocaleText("cprefs_desc","consentDescription");
+    setStaticLocaleText("setup_desc2","firstTimeDescPG2", args = [], mark = true);
+
+    setStaticLocaleText("setup_next_header", "firstTimeNextStepsHeader");
+    setStaticLocaleText("setup_next_desc","firstTimeNextStepsDesc", args = [], mark = true);
+
+    setStaticLocaleText("classify_title", "currentCookieEnforceTitle");
+    setStaticLocaleText("classify_desc", "currentCookieEnforceDescriptionSetup");
+    setStaticLocaleText("set_policy","buttonExitSetup");
+
+    setStaticLocaleText("cprefs_legend", "headerAdvancedSettings");
+    setStaticLocaleText("cprefs_desc","consentDescription", args = [], mark = true);
     setStaticLocaleText("nec_title","catNecessaryTitle");
     setStaticLocaleText("nec_desc","catNecessaryDesc");
     setStaticLocaleText("func_title","catFunctionalityTitle");
@@ -42,10 +38,63 @@ const advertisingCheckbox = document.getElementById("advert_checkbox");
     setStaticLocaleText("advert_title","catAdvertisingTitle");
     setStaticLocaleText("advert_desc","catAdvertisingDesc");
 
-    setStaticLocaleText("classify_title", "currentCookieEnforceTitle");
-    setStaticLocaleText("classify_desc", "currentCookieEnforceDescriptionSetup");
-    setStaticLocaleText("set_policy","buttonExitSetup");
+    setStaticLocaleText("history_consent_title", "historyConsentTitle");
+    setStaticLocaleText("history_consent_desc", "historyConsentDesc");
+    setStaticLocaleText("history_why", "historyWhy");
+    setStaticLocaleText("history_consent_desc_detailed", "historyConsentDescDetailed");
 
+    setStaticLocaleText("setup_references", "references", args = [], mark = true);
+}
+
+/**
+ * Switch recommended store links according to browser name for Firefox, Chrome, Edge, and Opera
+ */
+function browserLinkUpdate() {
+    isdcacLink = document.querySelector('a[href="https://www.i-dont-care-about-cookies.eu/"]');
+    ublockLink = document.querySelector('a[href="https://ublockorigin.com/"]');
+    cOmLink = document.querySelector('a[href="https://github.com/cavi-au/Consent-O-Matic"]');
+    pin_img = document.querySelector('img[src="/static/installation_pin.gif"]');
+    // if browser is Firefox:
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+        isdcacLink.href = "https://addons.mozilla.org/firefox/addon/istilldontcareaboutcookies/";
+        ublockLink.href = "https://addons.mozilla.org/firefox/addon/ublock-origin/";
+        cOmLink.href = "https://addons.mozilla.org/firefox/addon/consent-o-matic/";
+        pin_img.src = "/static/installation_pin.gif"; // TODO: create
+    } else if (navigator.userAgent.toLowerCase().indexOf('edge') > -1) { //edge
+        // no I still don't care about cookies - point to Chrome store
+        isdcacLink.href = "https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm";
+        ublockLink.href = "https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak";
+        cOmLink.href = "https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd";
+        pin_img.src = "/static/installation_pin_edge.gif";
+    } else if (navigator.userAgent.toLowerCase().indexOf('opera') > -1) { //opera
+        // no I still don't care about cookies - point to Chrome store
+        isdcacLink.href = "https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm";
+        ublockLink.href = "https://addons.opera.com/en/extensions/details/ublock/";
+        cOmLink.href = "https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd";
+        pin_img.src = "/static/installation_pin.gif"; // TODO: create
+    } else {
+        // use Chrome store as default
+        isdcacLink.href = "https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm";
+        ublockLink.href = "https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm";
+        cOmLink.href = "https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd";
+        pin_img.src = "/static/installation_pin.gif";
+    }
+}
+
+/**
+ * Helper for adding click listeners.
+ */
+const addPrefClickListener = function (checkboxID, idx) {
+    let cb = document.getElementById(checkboxID);
+    if (cb === null) {
+        console.error(`Checkbox with ID ${checkboxID} not found!`);
+        return;
+    }
+    cb.addEventListener("click", async (event) => {
+        policy = await getStorageValue(chrome.storage.sync, "cblk_userpolicy");
+        policy[idx] = cb.checked;
+        setStorageValue(policy, chrome.storage.sync, "cblk_userpolicy");
+    });
 }
 
 /**
@@ -54,30 +103,43 @@ const advertisingCheckbox = document.getElementById("advert_checkbox");
 const setupInitPage = async function() {
     setupLocalization();
 
+    const histCheckbox = document.getElementById("history_consent_checkbox");
+    const necessaryCheckbox = document.getElementById("nec_checkbox");
+    const functionalityCheckbox = document.getElementById("func_checkbox");
+    const analyticsCheckbox = document.getElementById("anal_checkbox");
+    const advertisingCheckbox = document.getElementById("advert_checkbox");
+
     necessaryCheckbox.checked = true;
     functionalityCheckbox.checked = true;
     analyticsCheckbox.checked = false;
     advertisingCheckbox.checked = false;
     histCheckbox.checked = true;
 
-    // switch recommended store links according to browser name for Firefox, Chrome, Edge, Opera and other:
-    // if browser is Firefox:
-    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-        document.getElementById("setup_link_isdcac").href = "https://addons.mozilla.org/firefox/addon/istilldontcareaboutcookies/";
-        document.getElementById("setup_link_ublock").href = "https://addons.mozilla.org/firefox/addon/ublock-origin/";
-    } else if (navigator.userAgent.toLowerCase().indexOf('edge') > -1) {
-        // no I still don't care about cookies - point to Chrome store
-        document.getElementById("setup_link_isdcac").href = "https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm";
-        document.getElementById("setup_link_ublock").href = "https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak";
-    } else if (navigator.userAgent.toLowerCase().indexOf('opera') > -1) {
-        // no I still don't care about cookies - point to Chrome store
-        document.getElementById("setup_link_isdcac").href = "https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm";
-        document.getElementById("setup_link_ublock").href = "https://addons.opera.com/en/extensions/details/ublock/";
-    } else {
-        // use Chrome store as default
-        document.getElementById("setup_link_isdcac").href = "https://chrome.google.com/webstore/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm";
-        document.getElementById("setup_link_ublock").href = "https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm";
-    }
+    browserLinkUpdate();
+
+    addPrefClickListener("nec_checkbox", 0);
+    addPrefClickListener("func_checkbox", 1);
+    addPrefClickListener("anal_checkbox", 2);
+    addPrefClickListener("advert_checkbox", 3);
+
+    // Set policy button
+    document.getElementById("set_policy").addEventListener("click", (ev) => {
+        document.getElementById("apply_text").hidden = false;
+        chrome.runtime.sendMessage({"classify_all": true}, (msg) => {
+            setStaticLocaleText("apply_text", "currentCookieEnforceMsg");
+            console.log(`Process completed with message: ${msg}.`);
+
+            // close once done
+            //chrome.tabs.getCurrent(function(tab) {
+            //    chrome.tabs.remove(tab.id, () => {});
+            //})
+        });
+    });
+
+    // consent checkbox
+    histCheckbox.addEventListener("click", (ev) => {
+        setStorageValue(histCheckbox.checked, chrome.storage.sync, "cblk_hconsent");
+    });
 
 }
 
@@ -95,6 +157,10 @@ const updateSelectionOnChange = function(changes, area) {
         // update the consent checkboxes
         if (changedItems.includes("cblk_userpolicy")) {
             newPolicy = changes["cblk_userpolicy"].newValue;
+            const necessaryCheckbox = document.getElementById("nec_checkbox");
+            const functionalityCheckbox = document.getElementById("func_checkbox");
+            const analyticsCheckbox = document.getElementById("anal_checkbox");
+            const advertisingCheckbox = document.getElementById("advert_checkbox");
             necessaryCheckbox.checked = newPolicy[0];
             functionalityCheckbox.checked = newPolicy[1];
             analyticsCheckbox.checked = newPolicy[2];
@@ -103,45 +169,10 @@ const updateSelectionOnChange = function(changes, area) {
 
         // update the history consent toggle
         if (changedItems.includes("cblk_hconsent")) {
+            const histCheckbox = document.getElementById("history_consent_checkbox");
             histCheckbox.checked = changes["cblk_hconsent"].newValue;
         }
     }
 }
 chrome.storage.onChanged.addListener(updateSelectionOnChange);
 
-
-/**
- * Helper for adding click listeners.
- */
- const addPrefClickListener = function (checkboxID, idx) {
-    let cb = document.getElementById(checkboxID);
-    cb.addEventListener("click", async (event) => {
-        policy = await getStorageValue(chrome.storage.sync, "cblk_userpolicy");
-        policy[idx] = cb.checked;
-        setStorageValue(policy, chrome.storage.sync, "cblk_userpolicy");
-    });
-}
-
-addPrefClickListener("nec_checkbox", 0);
-addPrefClickListener("func_checkbox", 1);
-addPrefClickListener("anal_checkbox", 2);
-addPrefClickListener("advert_checkbox", 3);
-
-// Set policy button
-document.getElementById("set_policy").addEventListener("click", (ev) => {
-    document.getElementById("apply_text").hidden = false;
-    chrome.runtime.sendMessage({"classify_all": true}, (msg) => {
-        setStaticLocaleText("apply_text", "currentCookieEnforceMsg");
-        console.log(`Process completed with message: ${msg}.`);
-
-        // close once done
-        //chrome.tabs.getCurrent(function(tab) {
-        //    chrome.tabs.remove(tab.id, () => {});
-        //})
-    });
-});
-
-// consent checkbox
-histCheckbox.addEventListener("click", (ev) => {
-    setStorageValue(histCheckbox.checked, chrome.storage.sync, "cblk_hconsent");
-});

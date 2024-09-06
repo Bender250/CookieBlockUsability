@@ -237,16 +237,22 @@ const classIndexToString = (idx) => {
  * @param {String} elemID Element ID
  * @param {String} locID Localization ID
  * @param {Array} args List of positional arguments for the localization.
+ * @param {Boolean} mark If true, the text will be marked up with markdown.
  */
-const setStaticLocaleText = (elemID, locID, args=[]) => {
-    try{
-        document.getElementById(elemID).textContent = chrome.i18n.getMessage(locID, args);
+const setStaticLocaleText = (elemID, locID, args = [], mark = false) => {
+    try {
+        const element = document.getElementById(elemID);
+        const message = chrome.i18n.getMessage(locID, args);
+        if (mark) {
+            element.innerHTML = marked.marked(message.replace(/\n/g, '\n'));
+        } else {
+            element.textContent = message;
+        }
     } catch (err) {
-        console.error(`Failed to apply localization for id '${elemID}' with text '${locID}'.`)
-        console.error("Original Error Message: " + err.message)
+        console.error(`Failed to apply localization for id '${elemID}' with text '${locID}'.`);
+        console.error("Original Error Message: " + err.message);
     }
 };
-
 
 // default configuration
 var defaultConfig = undefined;

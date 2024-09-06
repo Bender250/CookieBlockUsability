@@ -14,48 +14,53 @@
     "description": "Subtitle of the first time setup page."
   },
 
-  "settingsSubtitle": {
-    "message": "Settings and Preferences",
-    "description": "Subtitle of the settings page."
-  },
-
   "firstTimeGreeting": {
     "message": "Thank you for installing CookieBlock!",
     "description": "Greeting message on the first time setup."
   },
 
-  "feedbackTitle": {
-    "message": "Feedback",
-    "description": "Title for feedback submission section."
-  },
-
-  "feedbackPG1": {
-    "message": "To report a broken website or give us feedback, use the following link:",
-    "description": "Feedback text pointing towards the Google Forms survey."
-  },
-
-  "feedbackPG2": {
-    "message": "You can also report issues on our Github page:",
-    "description": "Feedback text pointing towards Github."
-  },
-
   "firstTimeDescPG1": {
-    "message": "CookieBlock allows you to automatically remove cookies that collect sensitive data and track you. It uses machine learning to automatically predict the purpose that each cookie is used for. It does not remove cookie banners, for that we recommend using extension one of the following extensions:",
+    "message": "This extension helps protect your privacy by automatically managing cookies.",
     "description": "Description paragraph 1 seen on the first time setup page."
   },
 
   "firstTimeDescPG2": {
-    "message": "Select the types of cookies you want to permit below. All of these options can be changed later. Note that the extension may make mistakes and can occasionally break website functionality. If this occurs, use the ‘Pause Cookie Removal’ checkbox or ‘Add Domain Exception’ button in extension popup to resolve the problem. You can also report the issue so we can resolve the problem.",
-    "description": "Description paragraph 2 seen on the first time setup page."
+    "message": "- **Function**: Keeps cookies essential for website functionality and removes cookies that track your data.\n- **Remove cookie notices**: CookieBlock does not remove or interact with cookie banners. Use other extensions like [Consent-O-Matic](https://github.com/cavi-au/Consent-O-Matic), [I don’t care about cookies](https://www.i-dont-care-about-cookies.eu/), or [uBlock Origin](https://ublockorigin.com/) with Annoyances filters for that functionality.\n- **Troubleshooting:** If you notice website issues (e.g., login problems or reappearing cookie notices), you can in CookieBlock popup:\n  - *Add Domain Exemption* to stop removing cookies.\n  - *Pause Cookie Removal*, which completely stops CookieBlock's functionality until it is resumed.",
+    "description": "Description on the first time setup page in a list."
   },
 
-  "firstTimeDescPG3": {
-    "message": "We appreciate your feedback and suggestions on how to improve the extension!",
-    "description": "Description paragraph 3 seen on the first time setup page."
+  "firstTimeNextStepsHeader" : {
+    "message": "Next Steps",
+    "description": "Header for the next steps part of the first time setup page."
+  },
+
+  "firstTimeNextStepsDesc": {
+    "message": "1.  **Pin CookieBlock**: To quickly access the statistics and manage exceptions via its icon.\n![how to pin the extension](/static/installation_pin.gif)\n2.  **Explore Settings**: For advanced users, customize CookieBlock via settings below.\n3. **Categorize and Remove Stored Cookies**: Run the extension on all currently stored cookies, and close the initial setup tab.",
+    "description" : "Description of the next steps in a list."
+  },
+
+  "currentCookieEnforceTitle" : {
+    "message": "Categorize and Remove Stored Cookies",
+    "description": "Header for the policy enforcement button."
+  },
+
+  "currentCookieEnforceDescription" : {
+    "message" : "This button will categorize all cookies currently stored in the browser, remove those rejected by the user policy, and close the initial setup tab.",
+    "description" : "Description of the policy enforcement on current cookies."
+  },
+
+  "buttonExitSetup" : {
+    "message": "Categorize and Remove Stored Cookies",
+    "description": "Label for the close button on the first time setup"
+  },
+
+  "headerAdvancedSettings" : {
+    "message": "Advanced settings",
+    "description": "Header for the setup options"
   },
 
   "consentDescription" : {
-    "message" : "Choose the types of cookies you want to allow in your browser:",
+    "message" : "**Customize Your Cookie Preferences:** Select the types of cookies you want to permit. You can change these settings anytime.",
     "description" : "Description of the consent choices."
   },
 
@@ -80,26 +85,61 @@
   },
 
   "catNecessaryDesc": {
-    "message": "Required to enable essential functions of the website, such as registration or shopping carts. They are always enabled to allow for a smooth and problem-free browsing experience.",
+    "message": "Required for essential website functions like registration or shopping carts. They are always enabled for a smooth and problem-free browsing experience.",
     "description": "Description of the 'Necessary' category."
   },
 
   "catFunctionalityDesc": {
-    "message": "Enable non-essential convenience or usability features of a website, such as saving style preferences between visits. However, this may also include a minor number of tracking cookies. We recommend enabling these cookies to improve the user experience.",
+    "message": "Enable non-essential convenience or usability features of a website, such as saving style preferences. May include minor tracking cookies. Recommended for improved user experience.",
     "description": "Description of the 'Functionality' category."
   },
 
   "catAnalyticsDesc" : {
-    "message": "Used to collect statistical information about how visitors use a website. This information is often used to measure the performance and guide the development of a website, but can include sensitive data and allow user tracking. Disable these if you are concerned over potential trackers from analytics services.",
+    "message": "Used to collect statistical information about how visitors use a website. This information is often used to measure the performance and guide the development of a website, but can include sensitive data and allow user tracking, although usually limited to a single site. Disable these if you are concerned over potential trackers from analytics services.",
     "description": "Description of the 'Analytics' category."
   },
 
   "catAdvertisingDesc" : {
-    "message": "Used to tailor advertisements to the viewer, help track the user and collect sensitive data of the user's browsing behavior, usually across multiple websites. Said data is then also often sold to third parties. We recommend rejecting these types of cookies to protect your privacy.",
+    "message": "Used to tailor advertisements, track the user, and collect sensitive data of the user's browsing behavior, usually across multiple websites. Said data is often sold to third parties. We recommend rejecting these types of cookies to protect your privacy.",
     "description": "Description of the 'Advertising' category."
   },
 
-  "headerAdditionalOptions" : {
+  "historyConsentTitle" :  {
+    "message": "Keep (Locally) Track of Cookie History (Recommended)",
+    "description": "Description for the cookie history consent toggle."
+  },
+
+  "historyConsentDesc" :  {
+    "message": "Store on your computer history of cookies to improve CookieBlock functionality. This history is inaccessible to other people.",
+    "description": "Description for the cookie history consent checkbox."
+  },
+
+  "historyWhy" :  {
+    "message": "Why are we asking?",
+    "description": "Short question that allows showing more details."
+  },
+
+  "historyConsentDescDetailed" :  {
+    "message": "Storing the history improves CookieBlock's prediction accuracy by collecting more detail on how websites use your cookies. It also allows CookieBlock to show you statistics of how many cookies were removed. Disable this option, if you are worried about these example scenarios. Your browser history can be observed by someone untrusted using the same computer (same browser profile); a security breach can leak the data in your browser; or border control can access your unlocked devices. In all of these scenarios, the adversary would be able to observe also cookies that expired or were manually removed by you.",
+    "description": "Detailed description for the cookie history consent checkbox - why should user consider disabling it."
+  },
+
+  "references": {
+    "message": "- **Homepage**: [CookieBlock Homepage](https://karelkubicek.github.io/post/cookieblock)\n- **Feedback**: [Feedback Form](https://forms.gle/tL21ruvPZq2q218P8)\n- **GitHub**: [GitHub Repository](https://github.com/dibollinger/CookieBlock)",
+    "description": "References and feedback list."
+  },
+
+
+
+
+
+  "settingsSubtitle": {
+    "message": "Settings and Preferences",
+    "description": "Subtitle of the settings page."
+  },
+
+
+  "headerGeneralSettings" : {
     "message": "General Settings",
     "description": "Additional options header text."
   },
@@ -117,11 +157,6 @@
   "pauseDescription" : {
     "message": "This checkbox stops removal of cookies, indicated by the icon change. Use it when a website does not function due to cookies removal.",
     "description": "Description for the 'pause removal' checkbox."
-  },
-
-  "buttonExitSetup" : {
-    "message": "Categorize and Remove Stored Cookies",
-    "description": "Label for the close button on the first time setup"
   },
 
   "popupText" : {
@@ -193,24 +228,11 @@
     "description": "Error state for classify button"
   },
 
-  "setupHeaderPreferences" : {
-    "message": "Setup Preferences",
-    "description": "Header for the setup options"
-  },
+
 
   "optionsHeaderConsent" : {
     "message": "Consent Preferences",
     "description": "Header for the consent category options"
-  },
-
-  "currentCookieEnforceTitle" : {
-    "message": "Categorize and Remove Stored Cookies",
-    "description": "Header for the policy enforcement button."
-  },
-
-  "currentCookieEnforceDescription" : {
-    "message" : "This button will categorize all cookies currently stored in the browser and remove those rejected by the user policy.",
-    "description" : "Description of the policy enforcement on current cookies."
   },
 
   "currentCookieEnforceDescriptionSetup" : {
@@ -246,37 +268,6 @@
   "exceptionPlaceholderText" : {
     "message" : "Add Exception",
     "description": "Text for the exception domain entry fields."
-  },
-
-  "functionalExceptionsHeader" : {
-    "message" : "Domain Exceptions for Functional Category",
-    "description" : "exception header title"
-  },
-
-  "functionalExceptionsDescription" : {
-    "message" : "Do not reject Functionality Cookies that stem from the following domains:",
-    "description" : "exception description"
-  },
-
-  "analyticsExceptionsHeader" : {
-    "message" : "Domain Exceptions for Analytics Category",
-    "description" : "exception header title"
-  },
-
-  "analyticsExceptionsDescription" : {
-    "message" : "Do not reject Analytics Cookies that stem from the following domains:",
-    "description" : "exception description"
-  },
-
-  "advertExceptionsHeader" : {
-    "message" : "Domain Exception for Advertising Category",
-    "description" : "exception header title"
-
-  },
-
-  "advertExceptionsDescription" : {
-    "message" : "Do not reject Advertising Cookies that stem from the following domains:",
-    "description" : "exception description"
   },
 
   "addButton" : {
@@ -395,27 +386,6 @@
   "applyErrorText" : {
     "message": "Process failed!",
     "description": "Error message if something goes wrong with the buttons."
-  },
-
-  "historyConsentTitle" :  {
-    "message": "Keep (Locally) Track of Cookie History (Recommended)",
-    "description": "Description for the cookie history consent toggle."
-  },
-
-  "historyConsentDesc" :  {
-    "message": "Store on your computer history of cookies to improve CookieBlock functionality. This history is inaccessible to other people.",
-    "description": "Description for the cookie history consent checkbox."
-  },
-
-  "historyWhy" :  {
-    "message": "Why are we asking?",
-    "description": "Short question that allows showing more details."
-  },
-
-
-  "historyConsentDescDetailed" :  {
-    "message": "Storing the history improves CookieBlock's prediction accuracy by collecting more detail on how websites use your cookies. It also allows CookieBlock to show you statistics of how many cookies were removed. Disable this option, if you are worried about these example scenarios. Your browser history can be observed by someone untrusted using the same computer (same browser profile); a security breach can leak the data in your browser; or border control can access your unlocked devices. In all of these scenarios, the adversary would be able to observe also cookies that expired or were manually removed by you.",
-    "description": "Detailed description for the cookie history consent checkbox - why should user consider disabling it."
   },
 
   "closeButtonText" : {

@@ -74,10 +74,24 @@ fieldset {
     border: 0;
 }
 
+/* Ensure that ul elements have a left margin and padding for proper alignment */
+ul {
+    margin-left: 20px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+    list-style-type: disc; /* This ensures that bullet points are used */
+}
+
+/* Ensure that li elements display as list items */
+li {
+    margin-bottom: 5px; /* Adds space between list items */
+}
+
 .contents {
     flex: 1 0 auto;
     background: white;
 }
+/*
 .contents ul {
     list-style: none;
     margin-left: 0em;
@@ -102,6 +116,7 @@ fieldset {
 .contents ul li.active:hover {
     background: rgba(50,255,50,0.2);
 }
+*/
 
 
 .settings_group {
@@ -178,10 +193,12 @@ fieldset {
 .submit_field {
     margin-top: 1em;
     margin-left: 3em;
+    margin-right: 3em;
 }
 
 .description {
     padding: 2em;
+    padding-top: 1em;
     padding-bottom: 0.5em;
 }
 
@@ -193,8 +210,7 @@ fieldset {
 }
 .rulelist li button {
     pointer-events: all;
-    position: absolute;
-    left: 2em;
+    margin-right: 1em;
     border: 0;
     cursor: pointer;
 }
@@ -206,7 +222,6 @@ fieldset {
 .button_clicktext {
     float:left;
     font-size: 1.25em;
-    margin-top: .5em;
     margin-left: 2.5em;
 }
 
@@ -238,6 +253,10 @@ hr.thick {
 
 .tf-input {
     width: 25em;
+}
+
+input[type='text'] {
+    margin-top: 0.5em;
 }
 
 #predef-submit {

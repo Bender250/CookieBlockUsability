@@ -1,13 +1,17 @@
-CookieBlockは、プライバシーを尊重しないCookieを自動的に削除することができるブラウザ拡張機能です。高度な機械学習技術により、Cookieを4つの目的に分類します。これらは「必要」「機能性」「分析」「広告」であり、ユーザーは個別に許可または拒否することができます。
 
-CookieBlockは、ブラウジングを邪魔する煩わしいクッキーのバナーとは異なり、ポリシーを一度定義するだけで、さらに拒否したタイプのクッキーが実際にブラウザから削除されることを保証します。さらに、CookieBlockは、あなたが訪問するどのウェブサイトでも動作し、ウェブサイトのホストの誠実さに依存しません。
+CookieBlockは、プライバシーを侵害するクッキーを自動的に削除するためのブラウザー拡張機能です。
 
-その結果、CookieBlockは、あなたのブラウジング体験から迷惑なクッキーバナーを削除しようとする拡張機能を完全に補完し、同時にあなたのプライバシーを保護することを可能にします。
+-   **自動クッキー分類**: CookieBlockは分析や広告に使用されるプライバシー侵害クッキーを自動的に削除します。言語や法律に関係なく世界中で動作します。
 
-このアドオンは、チューリッヒ工科大学のコンピュータサイエンス学部の情報セキュリティグループのメンバーによって構築され、修士論文「GDPRに準拠したクッキーの分析」の一部として開発されました。
+-   **補完ツール**: CookieBlockはクッキーバナーを削除したり操作したりしません。そのためには、次の拡張機能をお勧めします：[Consent-O-Matic](https://github.com/cavi-au/Consent-O-Matic)、[I don’t care about cookies](https://www.i-dont-care-about-cookies.eu/) または [uBlock Origin](https://ublockorigin.com/) の Annoyances フィルタ (例：EasyList Cookie) を使用してください。これらのみの使用ではプライバシーは保護されません。研究によると、ほぼ70%のウェブサイトはバナーを拒否した後や同意前にユーザーを追跡しています [[1](https://karelkubicek.github.io/post/cookieblock)、[2](https://ahmedbouhoula.github.io/post/automated)、[3](https://doi.org/10.1109/SP40000.2020.00076)]。したがって、CookieBlockをバナー除去拡張機能と一緒に使用することをお勧めします。
 
-また、第31回USENIXセキュリティシンポジウムでも紹介されています。https://www.usenix.org/conference/usenixsecurity22/presentation/bollinger。
+-   **ウェブサイトの破損**: CookieBlockは時折、ログインなどのウェブサイト機能を破損することがあります（私たちの評価では7％のウェブサイトでこれが確認されました）。CookieBlockのポップアップでは、グローバルに「クッキー削除を一時停止」したり、特定のウェブサイトに対して「ドメイン例外を追加」することができます。
 
-* ホームページ：https://karelkubicek.github.io/post/cookieblock
 
-* ソースコード: https://github.com/dibollinger/CookieBlock
+ETH ZurichのInformation Security Groupによって開発され、USENIX Securityの出版物「Analyzing Cookies Compliance with the GDPR」の一部として発表されました。
+
+-   ホームページ: [CookieBlock Homepage](https://karelkubicek.github.io/post/cookieblock)
+-   フィードバックフォーム: [Feedback Form](https://forms.gle/tL21ruvPZq2q218P8)
+-   ソースコード: [GitHub Repository](https://github.com/dibollinger/CookieBlock)
+
+_CookieBlockはあなたのプライバシーを尊重し、活動を追跡しません。_

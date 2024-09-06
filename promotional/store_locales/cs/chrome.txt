@@ -1,13 +1,16 @@
-CookieBlock je rozšíření prohlížeče, které umožňuje automaticky odstraňovat soubory cookie, které nerespektují vaše soukromí. Pomocí pokročilé technologie strojového učení kategorizuje soubory cookie do čtyř různých účelů. Jsou to "Nezbytné", "Funkční", "Analytické" a "Reklamní", které pak uživatel může jednotlivě povolit nebo odmítnout.
+CookieBlock je rozšíření prohlížeče navržené k automatickému odstranění cookies, které ohrožují vaše soukromí.
 
-Na rozdíl od otravných bannerů se soubory cookie, které přerušují prohlížení webu, vyžaduje CookieBlock pouze jedno definování zásad a navíc zaručuje, že typy souborů cookie, které odmítnete, budou z prohlížeče skutečně odstraněny. CookieBlock navíc funguje na jakýchkoli webových stránkách, které navštívíte, a nespoléhá se na poctivost hostitele webových stránek.
+-   **Automatická klasifikace cookies**: CookieBlock automaticky odstraňuje cookies, které narušují soukromí a jsou používány pro analýzu nebo reklamu. Funguje po celém světě nezávisle na jazyce nebo zákonech.
 
-Díky tomu CookieBlock dokonale doplňuje rozšíření, která se snaží odstranit otravné bannery se soubory cookie z vašeho prohlížení, a zároveň vám umožňuje zachovat si soukromí.
+-   **Doplňkový nástroj**: CookieBlock neodstraňuje ani neinteraguje s cookie bannery. Pro tento účel doporučujeme rozšíření [Consent-O-Matic](https://github.com/cavi-au/Consent-O-Matic), [I don’t care about cookies](https://www.i-dont-care-about-cookies.eu/) nebo [uBlock Origin](https://ublockorigin.com/) s Annoyances filtry (např. EasyList Cookie). Použití pouze těchto rozšíření nechrání vaše soukromí. Výzkum ukázal, že téměř 70% webových stránek sleduje uživatele po odmítnutí banneru nebo před udělením souhlasu [[1](https://karelkubicek.github.io/post/cookieblock), [2](https://ahmedbouhoula.github.io/post/automated), [3](https://doi.org/10.1109/SP40000.2020.00076)]. Proto doporučujeme používat CookieBlock společně s rozšířeními na odstranění bannerů.
 
-Tento doplněk vytvořili členové skupiny pro informační bezpečnost katedry informatiky na ETH Zürich a byl vyvinut v rámci diplomové práce "Analýza souladu souborů cookie s nařízením GDPR".
+-   **Problémy s webovými stránkami**: CookieBlock může někdy narušit funkčnost webových stránek, například přihlášení (naše hodnocení zjistilo, že se to stává u 7% webových stránek). Vyskakovací okno CookieBlock umožňuje 'Pozastavit odstranění cookies' globálně nebo 'Přidat výjimku pro doménu' pro danou webovou stránku, aby se minimalizovaly takové problémy.
 
-Je také představen na 31. sympoziu USENIX Security Symposium: https://www.usenix.org/conference/usenixsecurity22/presentation/bollinger.
 
-* Domovská stránka: https://karelkubicek.github.io/post/cookieblock
+Vyvinuto skupinou Information Security Group na ETH Zurich, jako součást publikace USENIX Security "Analyzing Cookies Compliance with the GDPR."
 
-* Zdrojový kód: https://github.com/dibollinger/CookieBlock
+-   Domovská stránka: [CookieBlock Homepage](https://karelkubicek.github.io/post/cookieblock)
+-   Formulář zpětné vazby: [Feedback Form](https://forms.gle/tL21ruvPZq2q218P8)
+-   Zdrojový kód: [GitHub Repository](https://github.com/dibollinger/CookieBlock)
+
+_CookieBlock respektuje vaše soukromí a nesleduje vaši aktivitu._

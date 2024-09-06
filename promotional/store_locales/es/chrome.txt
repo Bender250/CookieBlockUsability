@@ -1,13 +1,17 @@
-CookieBlock es una extensión del navegador que le permite eliminar automáticamente las cookies que no respetan su privacidad. Mediante el uso de tecnología avanzada de aprendizaje automático, clasifica las cookies en cuatro propósitos distintos. Estas son: "Necesarias", "Funcionales", "Analíticas" y "Publicitarias", que el usuario puede permitir o rechazar individualmente.
 
-A diferencia de los molestos banners de cookies que interrumpen su experiencia de navegación, CookieBlock sólo requiere que usted defina su política una vez, y además garantiza que los tipos de cookies que usted rechaza son realmente eliminados de su navegador. Además, CookieBlock funciona en cualquier sitio web que visite, y no depende de la honestidad del anfitrión del sitio web.
+CookieBlock es una extensión de navegador diseñada para eliminar automáticamente las cookies que comprometen tu privacidad.
 
-Como resultado, CookieBlock complementa perfectamente las extensiones que buscan eliminar los molestos banners de cookies de su experiencia de navegación, permitiéndole preservar su privacidad al mismo tiempo.
+-   **Clasificación automática de cookies**: CookieBlock elimina automáticamente las cookies intrusivas que se utilizan para análisis o publicidad. Funciona en cualquier parte del mundo, independientemente del idioma o la ley.
 
-Este complemento ha sido construido por miembros del Grupo de Seguridad de la Información del Departamento de Informática de la ETH Zürich, y fue desarrollado como parte de la tesis de máster "Análisis del cumplimiento de las cookies con el GDPR".
+-   **Herramienta complementaria**: CookieBlock no elimina ni interactúa con los banners de cookies. Para ello, recomendamos las extensiones [Consent-O-Matic](https://github.com/cavi-au/Consent-O-Matic), [I don’t care about cookies](https://www.i-dont-care-about-cookies.eu/) o [uBlock Origin](https://ublockorigin.com/) con filtros de Annoyances (p. ej., EasyList Cookie). El uso exclusivo de estas no protege tu privacidad. Las investigaciones han mostrado que casi el 70% de los sitios web rastrean a los usuarios después de descartar el banner o antes del consentimiento [[1](https://karelkubicek.github.io/post/cookieblock), [2](https://ahmedbouhoula.github.io/post/automated), [3](https://doi.org/10.1109/SP40000.2020.00076)]. Por lo tanto, recomendamos usar CookieBlock junto con las extensiones de eliminación de banners.
 
-También aparece en el 31º Simposio de Seguridad de USENIX: https://www.usenix.org/conference/usenixsecurity22/presentation/bollinger
+-   **Problemas en sitios web**: CookieBlock puede a veces romper la funcionalidad del sitio web, como los inicios de sesión (nuestra evaluación encontró esto en el 7% de los sitios web). El popup de CookieBlock permite 'Pausar la eliminación de cookies' globalmente o 'Añadir una excepción para el dominio' para limitar tales interrupciones.
 
-* Página web: https://karelkubicek.github.io/post/cookieblock
 
-* Código fuente: https://github.com/dibollinger/CookieBlock
+Desarrollado por el grupo Information Security Group en ETH Zurich, como parte de la publicación USENIX Security "Analyzing Cookies Compliance with the GDPR."
+
+-   Página principal: [CookieBlock Homepage](https://karelkubicek.github.io/post/cookieblock)
+-   Formulario de comentarios: [Feedback Form](https://forms.gle/tL21ruvPZq2q218P8)
+-   Código fuente: [GitHub Repository](https://github.com/dibollinger/CookieBlock)
+
+_CookieBlock respeta tu privacidad y no rastrea tu actividad._
